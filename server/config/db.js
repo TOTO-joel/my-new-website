@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb+srv://joelrung245:Ryg1005%26Kkh0705@cluster0.77rgg.mongodb.net/firstwebsite?retryWrites=true&w=majority';
+const mongoURI = 'mongodb+srv://joelrung245:oNvqY8bQxdAheLCs@cluster0.77rgg.mongodb.net/firstwebsite?retryWrites=true&w=majority';
 
 // const mongoURI = 'mongodb://127.0.0.1:27017/crud';
 
