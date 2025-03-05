@@ -104,7 +104,7 @@ const App = () => {
   return (
     <div>
       <div className="container">
-        <h1>Welcome to my first gitHub : CRUD - Jack An</h1>
+        <h1 style={{color: red}}>Welcome to my first gitHub : CRUD - Jack An</h1>
         <form onSubmit={handleAddUser}>
           <input
             type="text"
