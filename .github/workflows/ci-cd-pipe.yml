@@ -1,0 +1,46 @@
+name: CI/CD Pipeline
+
+# Trigger workflow on push or pull requests to 'main' branch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # The environment to run the job (Linux in this case)
+
+    steps:
+      # Checkout the repository to the workflow runner
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up Node.js (for example, if it's a Node.js app)
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify Node.js version
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Run tests (adjust to your testing command)
+      - name: Run tests
+        run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build  # This job depends on the success of the 'build' job
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Deploy to production (for example, using AWS CLI)
+      - name: Deploy to AWS
+        run: |
+          aws ecs update-service --cluster my-cluster --service my-service --force-new-deployment
